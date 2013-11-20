@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <allForms>
+    <title id="masterTitle">Computers Extreme Dealzzz</title>
+    <color>
+      <red>64</red>
+      <green>64</green>
+      <blue>64</blue>
+    </color>
+    <size>
+      <width>900</width>
+      <height>600</height>
+    </size>
+  </allForms>
+  <startForm>
+
+  </startForm>
+</data>
