@@ -11,16 +11,19 @@
     <AssemblyName>Computer_order</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>bin\Debug\Computer_order.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,10 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dollarcomputersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Resources\dollarcomputersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="selectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectionForm.Designer.cs">
+      <DependentUpon>selectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="XMLLoader.cs" />
     <Compile Include="startForm.cs">
@@ -58,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="selectionForm.resx">
+      <DependentUpon>selectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="startForm.resx">
       <DependentUpon>startForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,6 +89,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="dollarcomputersDataSet.xsc">
+      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dollarcomputersDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dollarcomputersDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dollarcomputersDataSet.xss">
+      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,7 +125,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\computer_orderForms.xml" />
+    <None Include="Resources\computer_orderForms.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dollarcomputers.mdb">
@@ -168,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\images\X770-01J.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

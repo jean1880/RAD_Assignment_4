@@ -120,9 +120,17 @@ namespace Computer_order.Properties {
         ///      &lt;green&gt;64&lt;/green&gt;
         ///      &lt;blue&gt;64&lt;/blue&gt;
         ///    &lt;/color&gt;
+        ///    &lt;size&gt;
+        ///      &lt;width&gt;900&lt;/width&gt;
+        ///      &lt;height&gt;600&lt;/height&gt;
+        ///      &lt;min-width&gt;400&lt;/min-width&gt;
+        ///      &lt;min-height&gt;300&lt;/min-height&gt;
+        ///    &lt;/size&gt;
         ///  &lt;/allForms&gt;
         ///  &lt;startForm&gt;
-        ///
+        ///    &lt;logoBox&gt;
+        ///      &lt;resource&gt;logo&lt;/resource&gt;
+        ///    &lt;/logoBox&gt;
         ///  &lt;/startForm&gt;
         ///&lt;/data&gt;.
         /// </summary>
@@ -209,6 +217,26 @@ namespace Computer_order.Properties {
             get {
                 object obj = ResourceManager.GetObject("iMac", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon logo1 {
+            get {
+                object obj = ResourceManager.GetObject("logo1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
