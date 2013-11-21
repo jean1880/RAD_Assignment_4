@@ -47,16 +47,19 @@
             this.infoBox = new System.Windows.Forms.GroupBox();
             this.infoFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.manufacturerBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.manufaturerLabel = new System.Windows.Forms.Label();
+            this.cpuBox = new System.Windows.Forms.GroupBox();
+            this.cpuLabel = new System.Windows.Forms.Label();
+            this.HDDBox = new System.Windows.Forms.GroupBox();
+            this.HDDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.computerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dollarcomputersDataSet)).BeginInit();
             this.infoBox.SuspendLayout();
             this.infoFlowLayoutPanel.SuspendLayout();
             this.manufacturerBox.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.cpuBox.SuspendLayout();
+            this.HDDBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // computerGrid
@@ -81,12 +84,14 @@
             this.oSDataGridViewTextBoxColumn});
             this.computerGrid.DataSource = this.productsBindingSource;
             this.computerGrid.Location = new System.Drawing.Point(12, 12);
+            this.computerGrid.MultiSelect = false;
             this.computerGrid.Name = "computerGrid";
             this.computerGrid.ReadOnly = true;
             this.computerGrid.RowTemplate.ReadOnly = true;
             this.computerGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.computerGrid.Size = new System.Drawing.Size(652, 267);
             this.computerGrid.TabIndex = 0;
+            this.computerGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.row_focus);
             // 
             // costDataGridViewTextBoxColumn
             // 
@@ -185,7 +190,8 @@
             // infoFlowLayoutPanel
             // 
             this.infoFlowLayoutPanel.Controls.Add(this.manufacturerBox);
-            this.infoFlowLayoutPanel.Controls.Add(this.groupBox2);
+            this.infoFlowLayoutPanel.Controls.Add(this.cpuBox);
+            this.infoFlowLayoutPanel.Controls.Add(this.HDDBox);
             this.infoFlowLayoutPanel.Location = new System.Drawing.Point(6, 20);
             this.infoFlowLayoutPanel.Name = "infoFlowLayoutPanel";
             this.infoFlowLayoutPanel.Size = new System.Drawing.Size(675, 117);
@@ -193,41 +199,60 @@
             // 
             // manufacturerBox
             // 
-            this.manufacturerBox.Controls.Add(this.label1);
+            this.manufacturerBox.Controls.Add(this.manufaturerLabel);
             this.manufacturerBox.Location = new System.Drawing.Point(3, 3);
             this.manufacturerBox.Name = "manufacturerBox";
             this.manufacturerBox.Size = new System.Drawing.Size(200, 42);
             this.manufacturerBox.TabIndex = 0;
             this.manufacturerBox.TabStop = false;
-            this.manufacturerBox.Text = "groupBox1";
+            this.manufacturerBox.Text = "Manufacturer";
             // 
-            // label1
+            // manufaturerLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.manufaturerLabel.AutoSize = true;
+            this.manufaturerLabel.Location = new System.Drawing.Point(42, 20);
+            this.manufaturerLabel.Name = "manufaturerLabel";
+            this.manufaturerLabel.Size = new System.Drawing.Size(35, 13);
+            this.manufaturerLabel.TabIndex = 0;
+            this.manufaturerLabel.Text = "label1";
             // 
-            // groupBox2
+            // cpuBox
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(209, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 42);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.cpuBox.Controls.Add(this.cpuLabel);
+            this.cpuBox.Location = new System.Drawing.Point(209, 3);
+            this.cpuBox.Name = "cpuBox";
+            this.cpuBox.Size = new System.Drawing.Size(200, 42);
+            this.cpuBox.TabIndex = 1;
+            this.cpuBox.TabStop = false;
+            this.cpuBox.Text = "CPU Info";
             // 
-            // label2
+            // cpuLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "label2";
+            this.cpuLabel.AutoSize = true;
+            this.cpuLabel.Location = new System.Drawing.Point(42, 20);
+            this.cpuLabel.Name = "cpuLabel";
+            this.cpuLabel.Size = new System.Drawing.Size(35, 13);
+            this.cpuLabel.TabIndex = 0;
+            this.cpuLabel.Text = "label2";
+            // 
+            // HDDBox
+            // 
+            this.HDDBox.Controls.Add(this.HDDLabel);
+            this.HDDBox.Location = new System.Drawing.Point(415, 3);
+            this.HDDBox.Name = "HDDBox";
+            this.HDDBox.Size = new System.Drawing.Size(200, 42);
+            this.HDDBox.TabIndex = 2;
+            this.HDDBox.TabStop = false;
+            this.HDDBox.Text = "Hardrive";
+            // 
+            // HDDLabel
+            // 
+            this.HDDLabel.AutoSize = true;
+            this.HDDLabel.Location = new System.Drawing.Point(42, 20);
+            this.HDDLabel.Name = "HDDLabel";
+            this.HDDLabel.Size = new System.Drawing.Size(35, 13);
+            this.HDDLabel.TabIndex = 0;
+            this.HDDLabel.Text = "label2";
             // 
             // selectionForm
             // 
@@ -249,8 +274,10 @@
             this.infoFlowLayoutPanel.ResumeLayout(false);
             this.manufacturerBox.ResumeLayout(false);
             this.manufacturerBox.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.cpuBox.ResumeLayout(false);
+            this.cpuBox.PerformLayout();
+            this.HDDBox.ResumeLayout(false);
+            this.HDDBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -274,9 +301,11 @@
         private System.Windows.Forms.GroupBox infoBox;
         private System.Windows.Forms.FlowLayoutPanel infoFlowLayoutPanel;
         private System.Windows.Forms.GroupBox manufacturerBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label manufaturerLabel;
+        private System.Windows.Forms.GroupBox cpuBox;
+        private System.Windows.Forms.Label cpuLabel;
+        private System.Windows.Forms.GroupBox HDDBox;
+        private System.Windows.Forms.Label HDDLabel;
 
 
 

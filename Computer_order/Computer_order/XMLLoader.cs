@@ -34,6 +34,7 @@ namespace Computer_order
             setColor();
             setSize();
             setMinSize();
+            setFontColor();
         }
 
         private void loadXML()
@@ -115,6 +116,11 @@ namespace Computer_order
         public Size getMinimumFormSize()
         {
             return this.minimumFormSize;
+        }
+
+        public Color getFontColor()
+        {
+            return this.fontColor;
         }
 
         public Image getImage(String imageBoxName)

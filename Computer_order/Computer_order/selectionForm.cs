@@ -17,6 +17,8 @@ namespace Computer_order
     {
         private xmlLoader XmlLoader;
         private startForm startForm;
+        private static int COSTCOL = 0;
+        private static int MANUFACTURERCOL = 5;
 
         /// <summary>
         /// This form allows the user to select the computer they wish to purchase
@@ -63,7 +65,18 @@ namespace Computer_order
 
             // set specific object properties
             computerGrid.MaximumSize    = XmlLoader.getItemMaxSize(computerGrid.Name);
+
+            // Set box label colors
             infoBox.Text                = XmlLoader.getText(infoBox.Name);
+            infoBox.ForeColor           = XmlLoader.getFontColor();
+            cpuBox.ForeColor            = XmlLoader.getFontColor();
+            manufacturerBox.ForeColor   = XmlLoader.getFontColor();
+            HDDBox.ForeColor            = XmlLoader.getFontColor();
+
+            // set label colors
+            cpuLabel.ForeColor          = XmlLoader.getFontColor();
+            HDDLabel.ForeColor          = XmlLoader.getFontColor();
+            manufaturerLabel.ForeColor  = XmlLoader.getFontColor();
         }
 
         /// <summary>
@@ -118,6 +131,18 @@ namespace Computer_order
         private void form_closing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void row_focus(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewSelectedCellCollection selectedCells = computerGrid.SelectedCells;
+            foreach (DataGridViewCell cell in selectedCells)
+            {
+                if (cell.ColumnIndex == MANUFACTURERCOL)
+                {
+                    manufaturerLabel.Text = cell.Value.ToString();
+                }
+            }
         }
     }
 }
