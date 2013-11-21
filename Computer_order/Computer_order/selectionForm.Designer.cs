@@ -45,9 +45,18 @@
             this.dollarcomputersDataSet = new Computer_order.dollarcomputersDataSet();
             this.productsTableAdapter = new Computer_order.dollarcomputersDataSetTableAdapters.productsTableAdapter();
             this.infoBox = new System.Windows.Forms.GroupBox();
+            this.infoFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.manufacturerBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.computerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dollarcomputersDataSet)).BeginInit();
+            this.infoBox.SuspendLayout();
+            this.infoFlowLayoutPanel.SuspendLayout();
+            this.manufacturerBox.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // computerGrid
@@ -165,12 +174,60 @@
             // 
             // infoBox
             // 
+            this.infoBox.Controls.Add(this.infoFlowLayoutPanel);
             this.infoBox.Location = new System.Drawing.Point(81, 299);
             this.infoBox.Name = "infoBox";
-            this.infoBox.Size = new System.Drawing.Size(200, 100);
+            this.infoBox.Size = new System.Drawing.Size(687, 143);
             this.infoBox.TabIndex = 1;
             this.infoBox.TabStop = false;
             this.infoBox.Text = "groupBox1";
+            // 
+            // infoFlowLayoutPanel
+            // 
+            this.infoFlowLayoutPanel.Controls.Add(this.manufacturerBox);
+            this.infoFlowLayoutPanel.Controls.Add(this.groupBox2);
+            this.infoFlowLayoutPanel.Location = new System.Drawing.Point(6, 20);
+            this.infoFlowLayoutPanel.Name = "infoFlowLayoutPanel";
+            this.infoFlowLayoutPanel.Size = new System.Drawing.Size(675, 117);
+            this.infoFlowLayoutPanel.TabIndex = 0;
+            // 
+            // manufacturerBox
+            // 
+            this.manufacturerBox.Controls.Add(this.label1);
+            this.manufacturerBox.Location = new System.Drawing.Point(3, 3);
+            this.manufacturerBox.Name = "manufacturerBox";
+            this.manufacturerBox.Size = new System.Drawing.Size(200, 42);
+            this.manufacturerBox.TabIndex = 0;
+            this.manufacturerBox.TabStop = false;
+            this.manufacturerBox.Text = "groupBox1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(209, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 42);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "label2";
             // 
             // selectionForm
             // 
@@ -188,6 +245,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.computerGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dollarcomputersDataSet)).EndInit();
+            this.infoBox.ResumeLayout(false);
+            this.infoFlowLayoutPanel.ResumeLayout(false);
+            this.manufacturerBox.ResumeLayout(false);
+            this.manufacturerBox.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -209,6 +272,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn conditionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oSDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox infoBox;
+        private System.Windows.Forms.FlowLayoutPanel infoFlowLayoutPanel;
+        private System.Windows.Forms.GroupBox manufacturerBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label2;
 
 
 

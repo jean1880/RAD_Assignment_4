@@ -16,6 +16,9 @@ namespace Computer_order
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            splash_screen splashScreen = new splash_screen();
+            splashScreen.ShowDialog();
             Application.Run(new startForm());
         }
     }

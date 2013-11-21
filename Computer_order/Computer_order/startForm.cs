@@ -18,7 +18,8 @@ namespace Computer_order
 
         public startForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            initialiseForm();
         }
 
         private void initialiseForm()
@@ -67,7 +68,6 @@ namespace Computer_order
 
         private void form_load(object sender, EventArgs e)
         {
-            initialiseForm();
             updateSizes();
             updateLocations();          
             logoBox.Image = XmlLoader.getImage(logoBox.Name);

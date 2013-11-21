@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="dollarcomputersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -64,6 +70,12 @@
     <Compile Include="selectionForm.Designer.cs">
       <DependentUpon>selectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="splash_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splash_screen.designer.cs">
+      <DependentUpon>splash_screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="XMLLoader.cs" />
     <Compile Include="startForm.cs">
       <SubType>Form</SubType>
@@ -73,8 +85,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="selectionForm.resx">
       <DependentUpon>selectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splash_screen.resx">
+      <DependentUpon>splash_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="startForm.resx">
       <DependentUpon>startForm.cs</DependentUpon>
