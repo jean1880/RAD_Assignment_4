@@ -30,17 +30,20 @@
   </startForm>
   <selectionForm>
     <size>
-      <min-width>700</min-width>
-      <min-height>500</min-height>
+      <min-width>785</min-width>
+      <min-height>600</min-height>
     </size>
-    <computerGrid>
-      <size>
-        <max-width>1075</max-width>
-        <max-height>500</max-height>
-      </size>
-    </computerGrid>
     <infoBox>
       <text>Computer Info</text>
     </infoBox>
+    <costUserLabel>
+      <text>Subtotal:</text>
+    </costUserLabel>
+    <HSTUserLabel>
+      <text>HST:</text>
+    </HSTUserLabel>
+    <totalUserLabel>
+      <text>Total:</text>
+    </totalUserLabel>
   </selectionForm>
 </data>
