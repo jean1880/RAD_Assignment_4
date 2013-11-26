@@ -31,7 +31,7 @@
   <selectionForm>
     <size>
       <min-width>785</min-width>
-      <min-height>600</min-height>
+      <min-height>700</min-height>
     </size>
     <infoBox>
       <text>Computer Info</text>
@@ -45,5 +45,35 @@
     <totalUserLabel>
       <text>Total:</text>
     </totalUserLabel>
+    <cancelButton>
+      <text>Cancel</text>
+    </cancelButton>
+    <nextButton>
+      <text>Next</text>
+    </nextButton>
   </selectionForm>
+  <productInfo>
+    <size>
+      <min-width>785</min-width>
+      <min-height>700</min-height>
+    </size>
+    <cancelButton>
+      <text>Cancel</text>
+    </cancelButton>
+    <nextButton>
+      <text>Next</text>
+    </nextButton>
+    <infoBox>
+      <text>Computer Info</text>
+    </infoBox>
+    <costUserLabel>
+      <text>Subtotal:</text>
+    </costUserLabel>
+    <HSTUserLabel>
+      <text>HST:</text>
+    </HSTUserLabel>
+    <totalUserLabel>
+      <text>Total:</text>
+    </totalUserLabel>
+  </productInfo>
 </data>

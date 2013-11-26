@@ -59,6 +59,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="productInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productInfo.Designer.cs">
+      <DependentUpon>productInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resources\dollarcomputersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productInfo.resx">
+      <DependentUpon>productInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="selectionForm.resx">
       <DependentUpon>selectionForm.cs</DependentUpon>

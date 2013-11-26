@@ -32,6 +32,7 @@
             this.loadButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
             this.logoBox = new System.Windows.Forms.PictureBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.loadButton.TabIndex = 0;
             this.loadButton.Text = "button1";
             this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // newButton
             // 
@@ -63,6 +65,10 @@
             this.logoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoBox.TabIndex = 2;
             this.logoBox.TabStop = false;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // startForm
             // 
@@ -89,6 +95,7 @@
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.PictureBox logoBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

@@ -41,6 +41,11 @@
             this.screensizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conditionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HDD_speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RAM_size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RAM_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resolution = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dollarcomputersDataSet = new Computer_order.dollarcomputersDataSet();
             this.productsTableAdapter = new Computer_order.dollarcomputersDataSetTableAdapters.productsTableAdapter();
@@ -67,6 +72,13 @@
             this.costBox = new System.Windows.Forms.GroupBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundFillerWorker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.computerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dollarcomputersDataSet)).BeginInit();
@@ -79,6 +91,7 @@
             this.GPUBox.SuspendLayout();
             this.OSBox.SuspendLayout();
             this.costBox.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // computerGrid
@@ -88,7 +101,7 @@
             this.computerGrid.AllowUserToResizeColumns = false;
             this.computerGrid.AllowUserToResizeRows = false;
             this.computerGrid.AutoGenerateColumns = false;
-            this.computerGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.computerGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.computerGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.computerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.computerGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -101,15 +114,20 @@
             this.CPU_number,
             this.screensizeDataGridViewTextBoxColumn,
             this.conditionDataGridViewTextBoxColumn,
-            this.oSDataGridViewTextBoxColumn});
+            this.oSDataGridViewTextBoxColumn,
+            this.weight,
+            this.HDD_speed,
+            this.RAM_size,
+            this.RAM_type,
+            this.resolution});
             this.computerGrid.DataSource = this.productsBindingSource;
-            this.computerGrid.Location = new System.Drawing.Point(12, 12);
+            this.computerGrid.Location = new System.Drawing.Point(8, 30);
             this.computerGrid.MultiSelect = false;
             this.computerGrid.Name = "computerGrid";
             this.computerGrid.ReadOnly = true;
             this.computerGrid.RowTemplate.ReadOnly = true;
             this.computerGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.computerGrid.Size = new System.Drawing.Size(971, 267);
+            this.computerGrid.Size = new System.Drawing.Size(1193, 267);
             this.computerGrid.TabIndex = 0;
             this.computerGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.row_focus);
             // 
@@ -119,6 +137,7 @@
             this.manufacturerDataGridViewTextBoxColumn.HeaderText = "manufacturer";
             this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
             this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.manufacturerDataGridViewTextBoxColumn.Width = 94;
             // 
             // modelDataGridViewTextBoxColumn
             // 
@@ -126,6 +145,7 @@
             this.modelDataGridViewTextBoxColumn.HeaderText = "model";
             this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.modelDataGridViewTextBoxColumn.Width = 60;
             // 
             // costDataGridViewTextBoxColumn
             // 
@@ -133,6 +153,7 @@
             this.costDataGridViewTextBoxColumn.HeaderText = "cost";
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
             this.costDataGridViewTextBoxColumn.ReadOnly = true;
+            this.costDataGridViewTextBoxColumn.Width = 52;
             // 
             // GPU_Type
             // 
@@ -140,6 +161,7 @@
             this.GPU_Type.HeaderText = "GPU_Type";
             this.GPU_Type.Name = "GPU_Type";
             this.GPU_Type.ReadOnly = true;
+            this.GPU_Type.Width = 85;
             // 
             // HDD_size
             // 
@@ -147,6 +169,7 @@
             this.HDD_size.HeaderText = "HDD_size";
             this.HDD_size.Name = "HDD_size";
             this.HDD_size.ReadOnly = true;
+            this.HDD_size.Width = 80;
             // 
             // CPU_brand
             // 
@@ -154,6 +177,7 @@
             this.CPU_brand.HeaderText = "CPU_brand";
             this.CPU_brand.Name = "CPU_brand";
             this.CPU_brand.ReadOnly = true;
+            this.CPU_brand.Width = 87;
             // 
             // CPU_number
             // 
@@ -161,6 +185,7 @@
             this.CPU_number.HeaderText = "CPU_number";
             this.CPU_number.Name = "CPU_number";
             this.CPU_number.ReadOnly = true;
+            this.CPU_number.Width = 95;
             // 
             // screensizeDataGridViewTextBoxColumn
             // 
@@ -168,6 +193,7 @@
             this.screensizeDataGridViewTextBoxColumn.HeaderText = "screensize";
             this.screensizeDataGridViewTextBoxColumn.Name = "screensizeDataGridViewTextBoxColumn";
             this.screensizeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.screensizeDataGridViewTextBoxColumn.Width = 82;
             // 
             // conditionDataGridViewTextBoxColumn
             // 
@@ -175,6 +201,7 @@
             this.conditionDataGridViewTextBoxColumn.HeaderText = "condition";
             this.conditionDataGridViewTextBoxColumn.Name = "conditionDataGridViewTextBoxColumn";
             this.conditionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.conditionDataGridViewTextBoxColumn.Width = 75;
             // 
             // oSDataGridViewTextBoxColumn
             // 
@@ -182,6 +209,47 @@
             this.oSDataGridViewTextBoxColumn.HeaderText = "OS";
             this.oSDataGridViewTextBoxColumn.Name = "oSDataGridViewTextBoxColumn";
             this.oSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oSDataGridViewTextBoxColumn.Width = 47;
+            // 
+            // weight
+            // 
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "weight";
+            this.weight.Name = "weight";
+            this.weight.ReadOnly = true;
+            this.weight.Width = 63;
+            // 
+            // HDD_speed
+            // 
+            this.HDD_speed.DataPropertyName = "HDD_speed";
+            this.HDD_speed.HeaderText = "HDD_speed";
+            this.HDD_speed.Name = "HDD_speed";
+            this.HDD_speed.ReadOnly = true;
+            this.HDD_speed.Width = 91;
+            // 
+            // RAM_size
+            // 
+            this.RAM_size.DataPropertyName = "RAM_size";
+            this.RAM_size.HeaderText = "RAM_size";
+            this.RAM_size.Name = "RAM_size";
+            this.RAM_size.ReadOnly = true;
+            this.RAM_size.Width = 80;
+            // 
+            // RAM_type
+            // 
+            this.RAM_type.DataPropertyName = "RAM_type";
+            this.RAM_type.HeaderText = "RAM_type";
+            this.RAM_type.Name = "RAM_type";
+            this.RAM_type.ReadOnly = true;
+            this.RAM_type.Width = 82;
+            // 
+            // resolution
+            // 
+            this.resolution.DataPropertyName = "resolution";
+            this.resolution.HeaderText = "resolution";
+            this.resolution.Name = "resolution";
+            this.resolution.ReadOnly = true;
+            this.resolution.Width = 77;
             // 
             // productsBindingSource
             // 
@@ -424,12 +492,14 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(693, 459);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "button1";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // nextButton
             // 
@@ -439,18 +509,74 @@
             this.nextButton.TabIndex = 10;
             this.nextButton.Text = "button2";
             this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenu,
+            this.editToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1213, 24);
+            this.menuStrip.TabIndex = 11;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // fileMenu
+            // 
+            this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileMenu.Name = "fileMenu";
+            this.fileMenu.Size = new System.Drawing.Size(37, 20);
+            this.fileMenu.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // backToolStripMenuItem
+            // 
+            this.backToolStripMenuItem.Name = "backToolStripMenuItem";
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.backToolStripMenuItem.Text = "Back";
+            // 
+            // backgroundFillerWorker
+            // 
+            this.backgroundFillerWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.fill_table);
             // 
             // selectionForm
             // 
+            this.AcceptButton = this.nextButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 551);
+            this.AutoSize = true;
+            this.CancelButton = this.cancelButton;
+            this.ClientSize = new System.Drawing.Size(1213, 551);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.costBox);
             this.Controls.Add(this.infoBox);
             this.Controls.Add(this.computerGrid);
+            this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "selectionForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_closing);
             this.Load += new System.EventHandler(this.form_load);
@@ -475,7 +601,10 @@
             this.OSBox.PerformLayout();
             this.costBox.ResumeLayout(false);
             this.costBox.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -499,6 +628,21 @@
         private System.Windows.Forms.Label GPULabel;
         private System.Windows.Forms.GroupBox OSBox;
         private System.Windows.Forms.Label OSLabel;
+        private System.Windows.Forms.Label costUserLabel;
+        private System.Windows.Forms.Label costLabel;
+        private System.Windows.Forms.Label HSTUserLabel;
+        private System.Windows.Forms.Label totalUserLabel;
+        private System.Windows.Forms.Label HSTLabel;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.GroupBox costBox;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileMenu;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
@@ -509,15 +653,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn screensizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn conditionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label costUserLabel;
-        private System.Windows.Forms.Label costLabel;
-        private System.Windows.Forms.Label HSTUserLabel;
-        private System.Windows.Forms.Label totalUserLabel;
-        private System.Windows.Forms.Label HSTLabel;
-        private System.Windows.Forms.Label totalLabel;
-        private System.Windows.Forms.GroupBox costBox;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HDD_speed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RAM_size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RAM_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resolution;
+        private System.ComponentModel.BackgroundWorker backgroundFillerWorker;
 
 
 

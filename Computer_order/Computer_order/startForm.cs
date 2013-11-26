@@ -10,18 +10,27 @@ using System.Windows.Forms;
 
 namespace Computer_order
 {
+    /// <summary>
+    /// Main start screen
+    /// </summary>
     public partial class startForm : Form
     {
         private Size buttonSize;
         private xmlLoader XmlLoader;
         private selectionForm selectionForm = new selectionForm();
 
+        /// <summary>
+        /// Starting form main constructor
+        /// </summary>
         public startForm()
         {
             InitializeComponent();
             initialiseForm();
         }
 
+        /// <summary>
+        /// Set initial form settings
+        /// </summary>
         private void initialiseForm()
         {
             this.XmlLoader = new xmlLoader(this);
@@ -30,8 +39,32 @@ namespace Computer_order
             this.Size = XmlLoader.getFormSize();
             this.MinimumSize = XmlLoader.getMinimumFormSize();
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            setopenFileSettings();
         }
 
+        /// <summary>
+        /// sets openfiledialog settings
+        /// </summary>
+        public void setopenFileSettings()
+        {
+            openFileDialog.Filter = "XML Files|*.xml";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFileDialog.FileName = "My_order";
+        }
+
+        /// <summary>
+        /// sets form loaction
+        /// </summary>
+        /// <param name="prevLocation"></param>
+        public void setFormLocation(Point prevLocation)
+        {
+            this.Location = prevLocation;
+        }
+
+        /// <summary>
+        /// Update sizes of elements
+        /// </summary>
         private void updateSizes()
         {
             this.buttonSize = new System.Drawing.Size(
@@ -44,6 +77,9 @@ namespace Computer_order
             loadButton.Size = buttonSize;            
         }
 
+        /// <summary>
+        /// Updates the locations of elements
+        /// </summary>
         private void updateLocations()
         {
             newButton.Location = new Point(
@@ -60,31 +96,62 @@ namespace Computer_order
                 );
         }
 
+        /// <summary>
+        /// On form resize update sizes and locations of elements
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void form_sizeChanged(object sender, EventArgs e)
         {
             updateSizes();
             updateLocations();            
         }
 
+        /// <summary>
+        /// On form load set form properties
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void form_load(object sender, EventArgs e)
         {
             updateSizes();
-            updateLocations();          
+            updateLocations();
             logoBox.Image = XmlLoader.getImage(logoBox.Name);
             newButton.Text = XmlLoader.getText(newButton.Name);
             loadButton.Text = XmlLoader.getText(loadButton.Name);
         }
 
+        /// <summary>
+        /// Start new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newButton_Click(object sender, EventArgs e)
         {
-            selectionForm.setStartForm(this);
+            selectionForm.setPrevForm(this);
+            selectionForm.setFormLocation(this.Location);
             selectionForm.Show();
             this.Hide();
         }
 
+        /// <summary>
+        /// Exit the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void form_closing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        /// <summary>
+        /// open load file dialog and load a saved order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            openFileDialog.ShowDialog();
         }
     }
 }
