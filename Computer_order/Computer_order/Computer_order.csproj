@@ -54,10 +54,11 @@
     <Compile Include="About.designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="dollarcomputersDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    <Compile Include="orderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="orderForm.Designer.cs">
+      <DependentUpon>orderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="productInfo.cs">
       <SubType>Form</SubType>
@@ -65,10 +66,15 @@
     <Compile Include="productInfo.Designer.cs">
       <DependentUpon>productInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\dollarcomputersDataSet.Designer.cs">
+    <Compile Include="dollarcomputersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\dollarcomputersDataSet.Designer.cs">
+      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="selectionForm.cs">
       <SubType>Form</SubType>
@@ -94,6 +100,9 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="orderForm.resx">
+      <DependentUpon>orderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="productInfo.resx">
       <DependentUpon>productInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,17 +125,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="dollarcomputersDataSet.xsc">
-      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dollarcomputersDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dollarcomputersDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dollarcomputersDataSet.xss">
-      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,15 +134,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\dollarcomputersDataSet.xsc">
+    <None Include="dollarcomputersDataSet.xsc">
       <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Resources\dollarcomputersDataSet.xsd">
+    <None Include="dollarcomputersDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dollarcomputersDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\dollarcomputersDataSet.xss">
+    <None Include="dollarcomputersDataSet.xss">
       <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
@@ -162,6 +160,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\dollarcomputersDataSet.xsc">
+      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\dollarcomputersDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dollarcomputersDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\dollarcomputersDataSet.xss">
+      <DependentUpon>dollarcomputersDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\images\630.jpg" />
   </ItemGroup>
   <ItemGroup>

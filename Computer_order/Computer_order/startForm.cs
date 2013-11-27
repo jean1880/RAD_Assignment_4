@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Computer_order
 {
@@ -18,6 +19,8 @@ namespace Computer_order
         private Size buttonSize;
         private xmlLoader XmlLoader;
         private selectionForm selectionForm = new selectionForm();
+        productInfo productInfo;
+        private static String FILECHECK = "<computer_order loadFile>";
 
         /// <summary>
         /// Starting form main constructor
@@ -48,9 +51,11 @@ namespace Computer_order
         /// </summary>
         public void setopenFileSettings()
         {
-            openFileDialog.Filter = "XML Files|*.xml";
+            openFileDialog.Filter = "Text Files|*.txt";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             openFileDialog.FileName = "My_order";
+            openFileDialog.AutoUpgradeEnabled = true;
+            openFileDialog.Multiselect = false;
         }
 
         /// <summary>
@@ -151,7 +156,41 @@ namespace Computer_order
         /// <param name="e"></param>
         private void loadButton_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog();
+            DialogResult dialogResult = openFileDialog.ShowDialog();
+            if (dialogResult != DialogResult.Cancel)
+            {
+                try
+                {
+                    StreamReader fileReader = new StreamReader(
+                        openFileDialog.FileName
+                    );
+
+                    String fileCheck = fileReader.ReadLine();
+
+                    if (fileCheck.Equals(FILECHECK))
+                    {
+                        String productID = fileReader.ReadLine();
+                        productID = productID.Substring(8);
+
+                        int prodID;
+                        if(int.TryParse(productID, out prodID))
+                        {
+                            if (productInfo == null)
+                            {
+                                productInfo = new productInfo();
+                            }
+                            productInfo.setProductID(prodID);
+                            productInfo.setPrevForm(this);
+                            productInfo.Show();
+                            this.Hide();
+                        }
+                    }
+                }
+                catch(IOException err)
+                {
+                    System.Diagnostics.Debug.Write(err.Message);
+                }
+            }
         }
     }
 }

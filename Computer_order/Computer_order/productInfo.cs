@@ -57,8 +57,7 @@ namespace Computer_order
             this.Size           = prevForm.Size;
             this.WindowState    = prevForm.WindowState;
             this.Location       = prevForm.Location;
-            this.MinimumSize    = XmlLoader.getMinimumFormSize();
-            
+            this.MinimumSize    = XmlLoader.getMinimumFormSize();            
         }
 
         /// <summary>
@@ -104,6 +103,42 @@ namespace Computer_order
             weightBox.ForeColor         = XmlLoader.getFontColor();
         }
 
+        /// <summary>
+        /// Sets the computerInfo based on the product ID
+        /// </summary>
+        /// <param name="ID"></param>
+        public void setProductID(int ID)
+        {
+            dollarcomputersDataSet.productsDataTable table = new dollarcomputersDataSet.productsDataTable();
+            DataRow[] test = table.Select();
+            resLabel.Text = table.Count.ToString() + " " + ID.ToString();
+            dollarcomputersDataSet.productsRow row = table.FindByproductID((short)ID);
+            if (row != null)
+            {
+                this.computerInfo.Add("CPUID", row.CPU_number);
+                this.computerInfo.Add("CPUMAN", row.CPU_brand);
+                this.computerInfo.Add("GPU", row.GPU_Type);
+                this.computerInfo.Add("HDDSize", row.HDD_size);
+                this.computerInfo.Add("HDDSpeed", row.HDD_speed);
+                this.computerInfo.Add("OS", row.OS);
+                this.computerInfo.Add("Manufacturer", row.manufacturer);
+                this.computerInfo.Add("Model", row.model);
+                this.computerInfo.Add("Screen", row.screensize);
+                this.computerInfo.Add("Condition", row.condition);
+                this.computerInfo.Add("Weight", row.weight);
+                this.computerInfo.Add("RAMSize", row.RAM_size);
+                this.computerInfo.Add("Resolution", row.resolution);
+                this.computerInfo.Add("Cost", row.cost.ToString());
+            }
+            else
+            {
+                System.Diagnostics.Debug.Write("row was not obstantiated");
+            }
+        }
+
+        /// <summary>
+        /// Set label texts
+        /// </summary>
         private void setLabelTexts()
         {
             String cpuId, cpuType, gpu, hddSize, hddSpeed, os, resolution, manufacturer, model, screen, costString, condition, weight, ramSize, ramType;

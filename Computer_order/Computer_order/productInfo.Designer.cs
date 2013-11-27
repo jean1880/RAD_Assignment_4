@@ -53,6 +53,8 @@
             this.screenSizeLabel = new System.Windows.Forms.Label();
             this.weightBox = new System.Windows.Forms.GroupBox();
             this.weightLabel = new System.Windows.Forms.Label();
+            this.resBox = new System.Windows.Forms.GroupBox();
+            this.resLabel = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,8 +68,8 @@
             this.HSTLabel = new System.Windows.Forms.Label();
             this.costLabel = new System.Windows.Forms.Label();
             this.HSTUserLabel = new System.Windows.Forms.Label();
-            this.resBox = new System.Windows.Forms.GroupBox();
-            this.resLabel = new System.Windows.Forms.Label();
+            this.productsTableAdapter1 = new Computer_order.Resources.dollarcomputersDataSetTableAdapters.productsTableAdapter();
+            this.dollarcomputersDataSet1 = new Computer_order.dollarcomputersDataSet();
             this.infoBox.SuspendLayout();
             this.infoFlowLayoutPanel.SuspendLayout();
             this.manufacturerBox.SuspendLayout();
@@ -80,9 +82,10 @@
             this.conditionBox.SuspendLayout();
             this.screenBox.SuspendLayout();
             this.weightBox.SuspendLayout();
+            this.resBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.costBox.SuspendLayout();
-            this.resBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dollarcomputersDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // nextButton
@@ -344,6 +347,27 @@
             this.weightLabel.TabIndex = 0;
             this.weightLabel.Text = "label2";
             // 
+            // resBox
+            // 
+            this.resBox.AutoSize = true;
+            this.resBox.Controls.Add(this.resLabel);
+            this.resBox.Location = new System.Drawing.Point(209, 168);
+            this.resBox.MinimumSize = new System.Drawing.Size(200, 40);
+            this.resBox.Name = "resBox";
+            this.resBox.Size = new System.Drawing.Size(200, 49);
+            this.resBox.TabIndex = 9;
+            this.resBox.TabStop = false;
+            this.resBox.Text = "Resolution";
+            // 
+            // resLabel
+            // 
+            this.resLabel.AutoSize = true;
+            this.resLabel.Location = new System.Drawing.Point(6, 20);
+            this.resLabel.Name = "resLabel";
+            this.resLabel.Size = new System.Drawing.Size(35, 13);
+            this.resLabel.TabIndex = 0;
+            this.resLabel.Text = "label2";
+            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -465,26 +489,14 @@
             this.HSTUserLabel.Text = "label1";
             this.HSTUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // resBox
+            // productsTableAdapter1
             // 
-            this.resBox.AutoSize = true;
-            this.resBox.Controls.Add(this.resLabel);
-            this.resBox.Location = new System.Drawing.Point(209, 168);
-            this.resBox.MinimumSize = new System.Drawing.Size(200, 40);
-            this.resBox.Name = "resBox";
-            this.resBox.Size = new System.Drawing.Size(200, 49);
-            this.resBox.TabIndex = 9;
-            this.resBox.TabStop = false;
-            this.resBox.Text = "Resolution";
+            this.productsTableAdapter1.ClearBeforeFill = true;
             // 
-            // resLabel
+            // dollarcomputersDataSet1
             // 
-            this.resLabel.AutoSize = true;
-            this.resLabel.Location = new System.Drawing.Point(6, 20);
-            this.resLabel.Name = "resLabel";
-            this.resLabel.Size = new System.Drawing.Size(35, 13);
-            this.resLabel.TabIndex = 0;
-            this.resLabel.Text = "label2";
+            this.dollarcomputersDataSet1.DataSetName = "dollarcomputersDataSet";
+            this.dollarcomputersDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productInfo
             // 
@@ -525,12 +537,13 @@
             this.screenBox.PerformLayout();
             this.weightBox.ResumeLayout(false);
             this.weightBox.PerformLayout();
+            this.resBox.ResumeLayout(false);
+            this.resBox.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.costBox.ResumeLayout(false);
             this.costBox.PerformLayout();
-            this.resBox.ResumeLayout(false);
-            this.resBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dollarcomputersDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,5 +590,7 @@
         private System.Windows.Forms.Label ramLabel;
         private System.Windows.Forms.GroupBox resBox;
         private System.Windows.Forms.Label resLabel;
+        private Resources.dollarcomputersDataSetTableAdapters.productsTableAdapter productsTableAdapter1;
+        private dollarcomputersDataSet dollarcomputersDataSet1;
     }
 }
