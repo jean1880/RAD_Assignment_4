@@ -10,10 +10,14 @@ using System.Windows.Forms;
 
 namespace Computer_order
 {
+    /// <summary>
+    /// Displays product info to the user
+    /// </summary>
     public partial class productInfo : Form
     {
         private xmlLoader XmlLoader;
         private Form prevForm;
+        private selectionForm selectionForm;
         private Dictionary<String, String> computerInfo = new Dictionary<String, String>();
         private static decimal HST = 0.13m;
 
@@ -23,7 +27,6 @@ namespace Computer_order
         public productInfo()
         {
             InitializeComponent();
-            initialiseForm(); // initialise form
         }
 
         /// <summary>
@@ -33,6 +36,7 @@ namespace Computer_order
         /// <param name="e"></param>
         private void form_load(object sender, EventArgs e)
         {
+            initialiseForm(); // initialise form
             updateSizes();
             updateLocation();
             setLabelTexts();
@@ -48,12 +52,12 @@ namespace Computer_order
             this.XmlLoader = new xmlLoader(this);
 
             // Set form properties
-            this.Text = XmlLoader.getFormTitle();
-            this.BackColor = XmlLoader.getFormColor();
-            this.Size = prevForm.Size;
-            this.WindowState = prevForm.WindowState;
-            this.Location = prevForm.Location;
-            this.MinimumSize = XmlLoader.getMinimumFormSize();
+            this.Text           = XmlLoader.getFormTitle();
+            this.BackColor      = XmlLoader.getFormColor();
+            this.Size           = prevForm.Size;
+            this.WindowState    = prevForm.WindowState;
+            this.Location       = prevForm.Location;
+            this.MinimumSize    = XmlLoader.getMinimumFormSize();
             
         }
 
@@ -96,14 +100,16 @@ namespace Computer_order
             conditionBox.ForeColor      = XmlLoader.getFontColor();
             screenBox.ForeColor         = XmlLoader.getFontColor();
             ramBox.ForeColor            = XmlLoader.getFontColor();
+            resBox.ForeColor            = XmlLoader.getFontColor();
+            weightBox.ForeColor         = XmlLoader.getFontColor();
         }
 
         private void setLabelTexts()
         {
-            String cpuId, cpuType, gpu, hddSize, hddSpeed, os, manufacturer, model, screen, costString, condition, weight, ramSize, ramType;
+            String cpuId, cpuType, gpu, hddSize, hddSpeed, os, resolution, manufacturer, model, screen, costString, condition, weight, ramSize, ramType;
             Decimal cost, HSTCost, totalCost;
 
-            if (computerInfo.TryGetValue("CPUID", out cpuId) && computerInfo.TryGetValue("CPUType", out cpuType))
+            if (computerInfo.TryGetValue("CPUID", out cpuId) && computerInfo.TryGetValue("CPUMAN", out cpuType))
             {
                 cpuLabel.Text = cpuType + " " + cpuId;
             }
@@ -143,6 +149,10 @@ namespace Computer_order
             {
                 ramLabel.Text = ramSize + " " + ramType;
             }
+            if (computerInfo.TryGetValue("Resolution", out resolution))
+            {
+                resLabel.Text = resolution;
+            }
             if (computerInfo.TryGetValue("Cost", out costString))
             {
                 if (Decimal.TryParse(costString, out cost))
@@ -180,6 +190,15 @@ namespace Computer_order
         public void setPrevForm(Form prevForm)
         {
             this.prevForm = prevForm;
+        }
+
+        /// <summary>
+        /// Set selection form to an existing form
+        /// </summary>
+        /// <param name="selectionForm"></param>
+        public void setSelectionForm(selectionForm selectionForm)
+        {
+            this.selectionForm = selectionForm;
         }
 
         /// <summary>
@@ -237,6 +256,22 @@ namespace Computer_order
                 (infoBox.Location.X + infoBox.Size.Width - cancelButton.Size.Width),
                 (costBox.Location.Y + (cancelButton.Size.Height * 2) + 10)
                 );
+        }
+
+        /// <summary>
+        /// reopens previous form and hides this form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            if (selectionForm == null)
+            {
+                this.selectionForm = new selectionForm();
+            }
+            this.selectionForm.setPrevForm(this);
+            this.selectionForm.Show();
+            this.Hide();
         }
     }
 }

@@ -89,7 +89,10 @@ namespace Computer_order
         /// <param name="e"></param>
         private void form_load(object sender, EventArgs e)
         {
-            this.productsTableAdapter.Fill(this.dollarcomputersDataSet.products); // Fill table
+            if (computerGrid.RowCount == 0)
+            {
+                this.productsTableAdapter.Fill(this.dollarcomputersDataSet.products); // Fill table
+            }
             initialiseForm(); // initialise form
         }
 

@@ -58,7 +58,7 @@
       <min-height>700</min-height>
     </size>
     <cancelButton>
-      <text>Cancel</text>
+      <text>Back</text>
     </cancelButton>
     <nextButton>
       <text>Next</text>

@@ -43,12 +43,16 @@
             this.HDDLabel = new System.Windows.Forms.Label();
             this.GPUBox = new System.Windows.Forms.GroupBox();
             this.GPULabel = new System.Windows.Forms.Label();
+            this.ramBox = new System.Windows.Forms.GroupBox();
+            this.ramLabel = new System.Windows.Forms.Label();
             this.OSBox = new System.Windows.Forms.GroupBox();
             this.OSLabel = new System.Windows.Forms.Label();
             this.conditionBox = new System.Windows.Forms.GroupBox();
             this.conditionLabel = new System.Windows.Forms.Label();
             this.screenBox = new System.Windows.Forms.GroupBox();
             this.screenSizeLabel = new System.Windows.Forms.Label();
+            this.weightBox = new System.Windows.Forms.GroupBox();
+            this.weightLabel = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,12 +66,8 @@
             this.HSTLabel = new System.Windows.Forms.Label();
             this.costLabel = new System.Windows.Forms.Label();
             this.HSTUserLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.weightBox = new System.Windows.Forms.GroupBox();
-            this.weightLabel = new System.Windows.Forms.Label();
-            this.ramBox = new System.Windows.Forms.GroupBox();
-            this.ramLabel = new System.Windows.Forms.Label();
+            this.resBox = new System.Windows.Forms.GroupBox();
+            this.resLabel = new System.Windows.Forms.Label();
             this.infoBox.SuspendLayout();
             this.infoFlowLayoutPanel.SuspendLayout();
             this.manufacturerBox.SuspendLayout();
@@ -75,14 +75,14 @@
             this.cpuBox.SuspendLayout();
             this.HDDBox.SuspendLayout();
             this.GPUBox.SuspendLayout();
+            this.ramBox.SuspendLayout();
             this.OSBox.SuspendLayout();
             this.conditionBox.SuspendLayout();
             this.screenBox.SuspendLayout();
+            this.weightBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.costBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.weightBox.SuspendLayout();
-            this.ramBox.SuspendLayout();
+            this.resBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // nextButton
@@ -103,6 +103,7 @@
             this.cancelButton.TabIndex = 11;
             this.cancelButton.Text = "button1";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // infoBox
             // 
@@ -125,8 +126,8 @@
             this.infoFlowLayoutPanel.Controls.Add(this.OSBox);
             this.infoFlowLayoutPanel.Controls.Add(this.conditionBox);
             this.infoFlowLayoutPanel.Controls.Add(this.screenBox);
-            this.infoFlowLayoutPanel.Controls.Add(this.groupBox1);
             this.infoFlowLayoutPanel.Controls.Add(this.weightBox);
+            this.infoFlowLayoutPanel.Controls.Add(this.resBox);
             this.infoFlowLayoutPanel.Location = new System.Drawing.Point(6, 20);
             this.infoFlowLayoutPanel.Name = "infoFlowLayoutPanel";
             this.infoFlowLayoutPanel.Size = new System.Drawing.Size(821, 257);
@@ -238,6 +239,27 @@
             this.GPULabel.TabIndex = 0;
             this.GPULabel.Text = "label2";
             // 
+            // ramBox
+            // 
+            this.ramBox.AutoSize = true;
+            this.ramBox.Controls.Add(this.ramLabel);
+            this.ramBox.Location = new System.Drawing.Point(415, 58);
+            this.ramBox.MinimumSize = new System.Drawing.Size(200, 40);
+            this.ramBox.Name = "ramBox";
+            this.ramBox.Size = new System.Drawing.Size(200, 49);
+            this.ramBox.TabIndex = 8;
+            this.ramBox.TabStop = false;
+            this.ramBox.Text = "RAM";
+            // 
+            // ramLabel
+            // 
+            this.ramLabel.AutoSize = true;
+            this.ramLabel.Location = new System.Drawing.Point(6, 20);
+            this.ramLabel.Name = "ramLabel";
+            this.ramLabel.Size = new System.Drawing.Size(35, 13);
+            this.ramLabel.TabIndex = 0;
+            this.ramLabel.Text = "label2";
+            // 
             // OSBox
             // 
             this.OSBox.AutoSize = true;
@@ -300,6 +322,27 @@
             this.screenSizeLabel.Size = new System.Drawing.Size(35, 13);
             this.screenSizeLabel.TabIndex = 0;
             this.screenSizeLabel.Text = "label2";
+            // 
+            // weightBox
+            // 
+            this.weightBox.AutoSize = true;
+            this.weightBox.Controls.Add(this.weightLabel);
+            this.weightBox.Location = new System.Drawing.Point(3, 168);
+            this.weightBox.MinimumSize = new System.Drawing.Size(200, 40);
+            this.weightBox.Name = "weightBox";
+            this.weightBox.Size = new System.Drawing.Size(200, 49);
+            this.weightBox.TabIndex = 7;
+            this.weightBox.TabStop = false;
+            this.weightBox.Text = "Weight";
+            // 
+            // weightLabel
+            // 
+            this.weightLabel.AutoSize = true;
+            this.weightLabel.Location = new System.Drawing.Point(6, 20);
+            this.weightLabel.Name = "weightLabel";
+            this.weightLabel.Size = new System.Drawing.Size(35, 13);
+            this.weightLabel.TabIndex = 0;
+            this.weightLabel.Text = "label2";
             // 
             // menuStrip
             // 
@@ -422,68 +465,26 @@
             this.HSTUserLabel.Text = "label1";
             this.HSTUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // groupBox1
+            // resBox
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 168);
-            this.groupBox1.MinimumSize = new System.Drawing.Size(200, 40);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 49);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Screen Size";
+            this.resBox.AutoSize = true;
+            this.resBox.Controls.Add(this.resLabel);
+            this.resBox.Location = new System.Drawing.Point(209, 168);
+            this.resBox.MinimumSize = new System.Drawing.Size(200, 40);
+            this.resBox.Name = "resBox";
+            this.resBox.Size = new System.Drawing.Size(200, 49);
+            this.resBox.TabIndex = 9;
+            this.resBox.TabStop = false;
+            this.resBox.Text = "Resolution";
             // 
-            // label1
+            // resLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label2";
-            // 
-            // weightBox
-            // 
-            this.weightBox.AutoSize = true;
-            this.weightBox.Controls.Add(this.weightLabel);
-            this.weightBox.Location = new System.Drawing.Point(209, 168);
-            this.weightBox.MinimumSize = new System.Drawing.Size(200, 40);
-            this.weightBox.Name = "weightBox";
-            this.weightBox.Size = new System.Drawing.Size(200, 49);
-            this.weightBox.TabIndex = 7;
-            this.weightBox.TabStop = false;
-            this.weightBox.Text = "Weight";
-            // 
-            // weightLabel
-            // 
-            this.weightLabel.AutoSize = true;
-            this.weightLabel.Location = new System.Drawing.Point(6, 20);
-            this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(35, 13);
-            this.weightLabel.TabIndex = 0;
-            this.weightLabel.Text = "label2";
-            // 
-            // ramBox
-            // 
-            this.ramBox.AutoSize = true;
-            this.ramBox.Controls.Add(this.ramLabel);
-            this.ramBox.Location = new System.Drawing.Point(415, 58);
-            this.ramBox.MinimumSize = new System.Drawing.Size(200, 40);
-            this.ramBox.Name = "ramBox";
-            this.ramBox.Size = new System.Drawing.Size(200, 49);
-            this.ramBox.TabIndex = 8;
-            this.ramBox.TabStop = false;
-            this.ramBox.Text = "RAM";
-            // 
-            // ramLabel
-            // 
-            this.ramLabel.AutoSize = true;
-            this.ramLabel.Location = new System.Drawing.Point(6, 20);
-            this.ramLabel.Name = "ramLabel";
-            this.ramLabel.Size = new System.Drawing.Size(35, 13);
-            this.ramLabel.TabIndex = 0;
-            this.ramLabel.Text = "label2";
+            this.resLabel.AutoSize = true;
+            this.resLabel.Location = new System.Drawing.Point(6, 20);
+            this.resLabel.Name = "resLabel";
+            this.resLabel.Size = new System.Drawing.Size(35, 13);
+            this.resLabel.TabIndex = 0;
+            this.resLabel.Text = "label2";
             // 
             // productInfo
             // 
@@ -514,22 +515,22 @@
             this.HDDBox.PerformLayout();
             this.GPUBox.ResumeLayout(false);
             this.GPUBox.PerformLayout();
+            this.ramBox.ResumeLayout(false);
+            this.ramBox.PerformLayout();
             this.OSBox.ResumeLayout(false);
             this.OSBox.PerformLayout();
             this.conditionBox.ResumeLayout(false);
             this.conditionBox.PerformLayout();
             this.screenBox.ResumeLayout(false);
             this.screenBox.PerformLayout();
+            this.weightBox.ResumeLayout(false);
+            this.weightBox.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.costBox.ResumeLayout(false);
             this.costBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.weightBox.ResumeLayout(false);
-            this.weightBox.PerformLayout();
-            this.ramBox.ResumeLayout(false);
-            this.ramBox.PerformLayout();
+            this.resBox.ResumeLayout(false);
+            this.resBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,11 +571,11 @@
         private System.Windows.Forms.Label HSTLabel;
         private System.Windows.Forms.Label costLabel;
         private System.Windows.Forms.Label HSTUserLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox weightBox;
         private System.Windows.Forms.Label weightLabel;
         private System.Windows.Forms.GroupBox ramBox;
         private System.Windows.Forms.Label ramLabel;
+        private System.Windows.Forms.GroupBox resBox;
+        private System.Windows.Forms.Label resLabel;
     }
 }
